@@ -31,7 +31,7 @@ The game I'm choosing is Connect4. It will be a simple grid layout with the play
 Bonus would be to choose to play between another player or the computer.
 
 BONUSThe screen would display a welcome header of the game and the choice if your playing 1 player or 2 player.BONUS
-Depending on decision it will then show what color you want to choose (will also have the benefit of going 1st like whites in chess).
+Depending on decision it will then show what color you want to choose (randomise who goes first).
 Once decided will the show the grid that we are playing on.
 Players will hover over column to decide which one they want to choose and it will show a color difference so it is clear and then click to confirm the placement.
 BONUS TO SHOW COUNTER FALL FROM TOP INTO POSITION BONUS
@@ -65,4 +65,45 @@ Query selectorAll is an array, how do i identify things in an array?
 if the even.target is the same as the class name in the array then show red
 click on div container, change background to red
 
+at end of handleClick to then change the nextcolor to yellow
+nextclick =yellow
+can i store moves made in an array so there is a memory of whatever the last color was? computer to then refer to array and if red change yellow else yellow change red
 
+i have created an array and when handle clck is operated it shows up with the color red and push into array the word red.. this i can see being a problem as iw ant to be able to pushwhatever the background color was wiothout me hardtyping the wprds red or yellow
+
+now must create a function that scans array.. if last entry matches red then change the background color to yellow, ive already created an identical function for player two with the only difference being the background color so i should be able to opass through this function.
+
+After over complicating and not being able to wrap my head around the computer being able to tell whos turn was whos, calling a let function as player 1 = true when i wanted it to be red and false when i wanted it to be as yellow made all the problems melt away and deliver very simple easy straight forward code.. annoyingly obvious as well when looking back on it.
+
+How to make counters fall..
+putting additional classes now allow me to pin point a column, at the minute the handle click specifies an individual div to change the color, i want it to change to..
+
+if you press anywhere on (A) column for the tile to fall to the next available slot.
+i have to specify if a slot is full or not
+- which can be done through is the style is red/yellow do nothing but if its white go to that one
+- if there are multiple white slots go to the class with the lowest number
+
+im not nderstanding how to use for loops correctly so i will state clearly what it is that i am attempting to do in english and try to refactopr that as simply as possible to hopefully help me undeerstand how i can get over this hurdle.
+
+objective= for counter to go to the lowest available slot within a column
+
+lets first look at it if it was empty...
+
+we need the console to determine what classifys as an "available slot"
+this can be done by targeting if the background color is white or not
+if it is white, it is available
+if it is not, it is not available
+
+each column had 3 classes, tile= on the board, then letter=which column, then letter and number= which place in column (lowest at the bottom)
+
+  if(event.target.classList[1]=="A"){
+        aTiles.forEach((aTile)=>{
+         console.log(aTile.style.backgroundColor)})
+
+When clicked in the A column, it lists in order what their background color is.
+
+We want the tile to fall to the lowest number to imitate gravity
+
+if clicked on column a, go to the next availble white spaced background(and fill that) starting from the bottom
+
+if ("click" .classList[1]==A) for loop => if (!white move on to next one else white background=> change color 

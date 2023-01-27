@@ -39,3 +39,31 @@
 // }
 
 // };
+// const isPlayerOne = (playerTurn)=>{
+
+//     if(playerTurn.slice(-1)="playerOne"){
+//         //tile not defined
+//         event.target.style.backgroundColor="yellow"}
+//         else {return}
+
+//     //change background color of div container
+// }
+
+// if(event.target.classList[2]=="A"){
+//     aTiles.forEach((aTile)=>{
+//      console.log(aTile.style)
+//     })
+//    }
+// const handleClick = () => {
+//     for (let index = 0; index < tiles.length; index++) {
+//         tiles[index].style.backgroundColor="red"
+//     }
+//     }
+// console.log(playerTurn)
+// if(playerTurn="playerOne"){
+//     playerTurn.push("playerTwo");
+// } else {playerOne(event)}
+
+// if(isPlayerOne=!isPlayerOne){
+//     isPlayerOne ? (event.target.backgroundColor = "red"):(event.target.backgroundColor = "yellow");
+// }
