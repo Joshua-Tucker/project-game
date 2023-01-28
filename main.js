@@ -12,37 +12,53 @@ let playerOneTurn = true;
 
 const handleClick = (event) => {
   if (event.target.style.backgroundColor == "") {
-            if (playerOneTurn) {
-              event.target.style.backgroundColor = "red";
-              playerOneTurn = false;
-            } else {
-              event.target.style.backgroundColor = "yellow";
-              playerOneTurn = true;
-            }
+   const currentTiles = getActiveColumn(event)
+   handleColumnDrop(currentTiles)
   } else {
     alert("Can't go there! Try somewhere else!");
   }
-  if(event.target.classList[2]=="A"){
-      for (let index = 0; index < aTiles.length; index++) {
-        if(aTiles[i].style.backgroundColor !== "red" && aTiles[i].style.backgroundColor !== "yellow"){
-          aTiles[i].style.backgroundColor = "red";
-          break;
-        };
+
       }
-       }
-
-  
+       
 
 
 
+const getActiveColumn = (event) =>{
+  switch(event.target.classList[1]){
+    case"A": return aTiles;
+    case"B": return bTiles;
+    case"C": return cTiles;
+    case"D": return dTiles;
+    case"E": return eTiles;
+    case"F": return fTiles;
+    case"G": return gTiles;
+  }
+};
 
-
-
+const loopThroughTiles = (tiles,dropColor) =>{
+    for (let index = 0; index < tiles.length; index++) {
+      if(tiles[index].style.backgroundColor == ""){
+        tiles[index].style.backgroundColor = dropColor;
+        break;
+      };
+    }
 }
 
 
 
+const handleColumnDrop = (columnTiles) =>{
+  let dropColor=getActiveColor()
+  loopThroughTiles(columnTiles,dropColor)
+  playerOneTurn = !playerOneTurn
+}
 
+const getActiveColor = () => {
+  if(playerOneTurn){
+    return "red"
+  }else {
+    return "yellow"
+  }
+}
 
 
 
