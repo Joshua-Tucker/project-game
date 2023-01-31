@@ -20,7 +20,7 @@ const getActiveColor = () => {
   }
 }
 
-//
+
 const getActiveColumn = (event) =>{
   switch(event.target.classList[1]){
     case"A": return aTiles;
@@ -51,18 +51,21 @@ const checkColumn = (activeColumn) => {
     (tiles[index+2].style.backgroundColor=="red") &&
     (tiles[index+3].style.backgroundColor=="red"))
     { console.log("Red Winner")
+    setTimeout(()=>{alert("Red is the Winner!")},250)
     break;
     } else if((tiles[index].style.backgroundColor=="yellow") &&
     (tiles[index+1].style.backgroundColor=="yellow") &&
     (tiles[index+2].style.backgroundColor=="yellow") &&
     (tiles[index+3].style.backgroundColor=="yellow"))
     { console.log("Yellow Winner")
+    setTimeout(()=>{alert("Yellow is the Winner!")},250)
+
     break;
     }
-      if(console.log("Red Winner")){
-        alert("Red Winner")
-      } else if (console.log("Yellow Winner")){
-        alert("Yellow Winner")}
+      // if(console.log("Red Winner")){
+      //   alert("Red Winner")
+      // } else if (console.log("Yellow Winner")){
+      //   alert("Yellow Winner")}
   }
 }
 
