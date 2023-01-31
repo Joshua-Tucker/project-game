@@ -37,46 +37,68 @@ const loopThroughTiles = (tiles,dropColor) =>{
   for (let index = 0; index < tiles.length; index++) {
     if(tiles[index].style.backgroundColor == ""){
       tiles[index].style.backgroundColor = dropColor;
-      break; //needed?
+      break; 
     };
   }
 }
 
-const checkColumn = (activeColumn) => {
 
-  for (let index = 0; index < tiles.length; index++) {
+
+
+
+
+
+
+
+
+
+
+const checkColumn = (getActiveColumn) => {
+const checkingColumn = getActiveColumn
+  for (let index = 0; index < checkingColumn.length; index++) {
     if(
-    (tiles[index].style.backgroundColor=="red") &&
-    (tiles[index+1].style.backgroundColor=="red") &&
-    (tiles[index+2].style.backgroundColor=="red") &&
-    (tiles[index+3].style.backgroundColor=="red"))
-    { console.log("Red Winner")
-    setTimeout(()=>{alert("Red is the Winner!")},250)
-    break;
-    } else if((tiles[index].style.backgroundColor=="yellow") &&
-    (tiles[index+1].style.backgroundColor=="yellow") &&
-    (tiles[index+2].style.backgroundColor=="yellow") &&
-    (tiles[index+3].style.backgroundColor=="yellow"))
-    { console.log("Yellow Winner")
-    setTimeout(()=>{alert("Yellow is the Winner!")},250)
-
-    break;
+      (tiles[index].style.backgroundColor=="red") &&
+      (tiles[index+1].style.backgroundColor=="red") &&
+      (tiles[index+2].style.backgroundColor=="red") &&
+      (tiles[index+3].style.backgroundColor=="red"))
+      { console.log("Red Winner")
+      setTimeout(()=>{alert("Red is the Winner!")},250)
+      break;
+      } else if(
+      (tiles[index].style.backgroundColor=="yellow") &&
+      (tiles[index+1].style.backgroundColor=="yellow") &&
+      (tiles[index+2].style.backgroundColor=="yellow") &&
+      (tiles[index+3].style.backgroundColor=="yellow"))
+      { console.log("Yellow Winner")
+      setTimeout(()=>{alert("Yellow is the Winner!")},250)
+      break;
     }
-      // if(console.log("Red Winner")){
-      //   alert("Red Winner")
-      // } else if (console.log("Yellow Winner")){
-      //   alert("Yellow Winner")}
   }
 }
 
+//I want to check the entire board for their colors but I only want to apply the function up to 
+const checkRow = ()=>{
+for (let index = 0; index <= 23; index++) {
+  if(
+    (tiles[index].style.backgroundColor=="red") &&
+    (tiles[index+6].style.backgroundColor=="red") &&
+    (tiles[index+12].style.backgroundColor=="red") &&
+    (tiles[index+18].style.backgroundColor=="red"))
+    { console.log("Red Winner")
+    setTimeout(()=>{alert("Red is the Winner!")},250)
+    break;
+    }else if(
+    (tiles[index].style.backgroundColor=="yellow") &&
+    (tiles[index+6].style.backgroundColor=="yellow") &&
+    (tiles[index+12].style.backgroundColor=="yellow") &&
+    (tiles[index+18].style.backgroundColor=="yellow"))
+    { console.log("Yellow Winner")
+    setTimeout(()=>{alert("Yellow is the Winner!")},250)
+    break;
 
-// const checkRow = ()=>{
-// for (let index = 0; index < 36; index++) {
-//   if((tiles[index].style.backgroundColor=="red")&&(tiles[index+6].style.backgroundColor=="red")){
-//     console.log("Same color")
-//   }
-// }  
-// }
+    }  
+  }
+}
 
 
 // /not understanding this function
@@ -97,8 +119,8 @@ const handleClick = (event) => {
   } else {
     alert("Can't go there! Try somewhere else!");
   }
-  // checkColumn(getActiveColumn)
-  // checkRow()
+  checkColumn()
+  checkRow()
 
 }
 

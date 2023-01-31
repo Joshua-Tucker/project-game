@@ -75,3 +75,8 @@
 //     event.target.style.backgroundColor = "yellow";
 //     playerOneTurn = true;
 // //   }
+
+      // if(console.log("Red Winner")){
+      //   alert("Red Winner")
+      // } else if (console.log("Yellow Winner")){
+      //   alert("Yellow Winner")}
