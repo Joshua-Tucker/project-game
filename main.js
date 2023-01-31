@@ -7,21 +7,16 @@ const eTiles = document.querySelectorAll(".E");
 const fTiles = document.querySelectorAll(".F");
 const gTiles = document.querySelectorAll(".G");
 
-let playerTurn = [];
 let playerOneTurn = true;
 
-const handleClick = (event) => {
-  if (event.target.style.backgroundColor == "") {
-   const currentTiles = getActiveColumn(event)
-   handleColumnDrop(currentTiles)
-  } else {
-    alert("Can't go there! Try somewhere else!");
+
+const getActiveColor = () => {
+  if(playerOneTurn){
+    return "red"
+  }else {
+    return "yellow"
   }
-
-      }
-       
-
-
+}
 
 const getActiveColumn = (event) =>{
   switch(event.target.classList[1]){
@@ -36,15 +31,13 @@ const getActiveColumn = (event) =>{
 };
 
 const loopThroughTiles = (tiles,dropColor) =>{
-    for (let index = 0; index < tiles.length; index++) {
-      if(tiles[index].style.backgroundColor == ""){
-        tiles[index].style.backgroundColor = dropColor;
-        break;
-      };
-    }
+  for (let index = 0; index < tiles.length; index++) {
+    if(tiles[index].style.backgroundColor == ""){
+      tiles[index].style.backgroundColor = dropColor;
+      break;
+    };
+  }
 }
-
-
 
 const handleColumnDrop = (columnTiles) =>{
   let dropColor=getActiveColor()
@@ -52,25 +45,22 @@ const handleColumnDrop = (columnTiles) =>{
   playerOneTurn = !playerOneTurn
 }
 
-const getActiveColor = () => {
-  if(playerOneTurn){
-    return "red"
-  }else {
-    return "yellow"
+
+
+const handleClick = (event) => {
+  if (event.target.style.backgroundColor == "") {
+   const currentTiles = getActiveColumn(event)
+   handleColumnDrop(currentTiles)
+  } else {
+    alert("Can't go there! Try somewhere else!");
   }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
+       
 tiles.forEach((tile) => {
-  tile.addEventListener("click", handleClick);
-});
+tile.addEventListener("click", handleClick);});
+
+
+
+
+
