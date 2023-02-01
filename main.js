@@ -10,11 +10,13 @@ const resetButton = document.querySelector(".reset")
 const winRow = document.querySelectorAll(".checkRow")
 const winCol = document.querySelectorAll(".checkCol")
 const checkColAndRow = document.querySelectorAll(".checkBoth")
-
+const tileArr=[...tiles]
+const checkableTiles = [].concat(winCol,winRow,checkColAndRow)
 
 let playerOneTurn = true;
 
-console.log(tiles)
+
+
 
 const getActiveColor = () => {
   if(playerOneTurn){
@@ -23,7 +25,6 @@ const getActiveColor = () => {
     return "yellow"
   }
 }
-
 
 const getActiveColumn = (event) =>{
   switch(event.target.classList[1]){
@@ -46,33 +47,22 @@ const loopThroughTiles = (tiles,dropColor) =>{
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-const checkColumn = (getActiveColumn) => {
-// const checkingColumn = getActiveColumn(event)
-  for (let index = 0; index < tiles.length; index++) {
+const checkColumn = (column, event) => {
+const checkingColumn = getActiveColumn(event)
+  for (let index = 0; index < checkingColumn.length; index++) {
     if(
-      (tiles[index].style.backgroundColor=="red") &&
-      (tiles[index+1].style.backgroundColor=="red") &&
-      (tiles[index+2].style.backgroundColor=="red") &&
-      (tiles[index+3].style.backgroundColor=="red"))
+      (checkingColumn[index].style.backgroundColor=="red") &&
+      (checkingColumn[index+1].style.backgroundColor=="red") &&
+      (checkingColumn[index+2].style.backgroundColor=="red") &&
+      (checkingColumn[index+3].style.backgroundColor=="red"))
       { console.log("Red Winner")
       setTimeout(()=>{alert("Red is the Winner!")},250)
       break;
       } else if(
-      (tiles[index].style.backgroundColor=="yellow") &&
-      (tiles[index+1].style.backgroundColor=="yellow") &&
-      (tiles[index+2].style.backgroundColor=="yellow") &&
-      (tiles[index+3].style.backgroundColor=="yellow"))
+      (checkingColumn[index].style.backgroundColor=="yellow") &&
+      (checkingColumn[index+1].style.backgroundColor=="yellow") &&
+      (checkingColumn[index+2].style.backgroundColor=="yellow") &&
+      (checkingColumn[index+3].style.backgroundColor=="yellow"))
       { console.log("Yellow Winner")
       setTimeout(()=>{alert("Yellow is the Winner!")},250)
       break;
@@ -80,7 +70,7 @@ const checkColumn = (getActiveColumn) => {
   }
 }
 
-//I want to check the entire board for their colors but I only want to apply the function up to 
+//APPLY SAME LOGIC WITH COLUMNS TO ROW(ACTIVE ROW THEN CHANGE IF STATEMENT)
 const checkRow = ()=>{
 for (let index = 0; index <= 23; index++) {
   if(
@@ -103,28 +93,62 @@ for (let index = 0; index <= 23; index++) {
   }
 }
 
-const checkableTiles = [].concat(winCol,winRow,checkColAndRow)
-console.log(checkableTiles)
 
-// const checkWin=()=>{
-//   const checkableTiles = tiles.map((tile) =>{
-//     if (tile.classList.contains("checkCol" || "checkRow"))
-//   })
-// }
+const checkDiagonal =() =>{
+  winDiagonalArray = [
+    [0,7,14,21],
+    [1,8,15,22],
+    [2,9,16,23],
+    [3,8,13,18],
+    [4,9,14,19],
+    [5,10,15,20],
+    [6,13,20,27],
+    [7,14,21,28],
+    [8,15,22,29],
+    [9,14,19,24],
+    [10,15,20,25],
+    [11,16,21,26],
+    [12,19,26,33],
+    [13,20,27,34],
+    [14,21,28,35],
+    [15,20,25,30],
+    [16,21,26,31],
+    [17,22,27,32],
+    [18,25,32,39],
+    [19,26,33,40],
+    [20,27,34,41],
+    [21,26,31,36],
+    [22,27,32,37],
+    [23,28,33,38]
 
+  ]
 
-
-// /not understanding this function
-//from the name i think its to determine what color tile is dropped when click
-
-const handleColumnDrop = (columnTiles) =>{ 
-  let dropColor=getActiveColor() //whether player 1 turn true or false 
-  loopThroughTiles(columnTiles,dropColor)//above function, go through all the tiles, if     currently white change to whosever turn it is
-  playerOneTurn = !playerOneTurn//change it to now not be the same players turn
 }
 
 
-// when clicked, if the background is white then then handlecolum drop function is in play, which 
+
+
+const checkWin=(event)=>{
+  if(checkableTiles[0]){
+    checkColumn(winCol, event)
+    return
+  } else if(checkableTiles[1]){
+    checkRow(winRow, event)
+    return
+  } else {
+    checkColumn(checkColAndRow, event);
+    checkRow(checkColAndRow, event)
+    return
+  }
+}
+
+
+const handleColumnDrop = (columnTiles) =>{ 
+  let dropColor=getActiveColor() 
+  loopThroughTiles(columnTiles,dropColor)
+  playerOneTurn = !playerOneTurn
+}
+
 const handleClick = (event) => {
   if (event.target.style.backgroundColor == "") {
    const currentTiles = getActiveColumn(event);
@@ -132,9 +156,7 @@ const handleClick = (event) => {
   } else {
     alert("Can't go there! Try somewhere else!");
   }
-  checkColumn()
-  checkRow()
-
+  checkWin(event)
 }
 
 const handleReset = (event) => {
@@ -149,10 +171,9 @@ const handleReset = (event) => {
 
 tiles.forEach((tile) => {
 tile.addEventListener("click", handleClick);
-tile.addEventListener("click", checkColumn);})
+tile.addEventListener("click", handleClick);})
 
 resetButton.addEventListener("click",handleReset)
-// tile.addEventListener("click", checkRow);});
 
 
 
