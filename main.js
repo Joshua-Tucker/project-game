@@ -18,12 +18,53 @@ const playerTwoName = document.getElementById("playerTwo");
 
 let playerOneTurn = true;
 
+const winDiagonalArray = [
+  [0, 7, 14, 21],
+  [1, 8, 15, 22],
+  [2, 9, 16, 23],
+  [3, 8, 13, 18],
+  [4, 9, 14, 19],
+  [5, 10, 15, 20],
+  [6, 13, 20, 27],
+  [7, 14, 21, 28],
+  [8, 15, 22, 29],
+  [9, 14, 19, 24],
+  [10, 15, 20, 25],
+  [11, 16, 21, 26],
+  [12, 19, 26, 33],
+  [13, 20, 27, 34],
+  [14, 21, 28, 35],
+  [15, 20, 25, 30],
+  [16, 21, 26, 31],
+  [17, 22, 27, 32],
+  [18, 25, 32, 39],
+  [19, 26, 33, 40],
+  [20, 27, 34, 41],
+  [21, 26, 31, 36],
+  [22, 27, 32, 37],
+  [23, 28, 33, 38],
+];
+
 const nameDisplay = () => {
   if (playerOneTurn) {
     playerDisplay.innerHTML = playerOneName.value + " to move next!";
   } else {
     playerDisplay.innerHTML = playerTwoName.value + " to move next!";
   }
+};
+
+const playerOneWinner = () => {
+  console.log("Red Winner");
+  setTimeout(() => {
+    alert(playerOneName.value + " is the Winner!");
+  }, 250);
+};
+
+const playerTwoWinner = () => {
+  console.log("Red Winner");
+  setTimeout(() => {
+    alert(playerTwoName.value + " is the Winner!");
+  }, 250);
 };
 
 const getActiveColor = () => {
@@ -34,27 +75,22 @@ const getActiveColor = () => {
   }
 };
 
+const checkColorTile = () => {};
+
 const checkDiagonal = () => {
   tilesArr.forEach((tile) => {
-    winDiagonalArr.forEach((array) => {
-      if (array.includes(tile.value)) {
-        return array.every((item) => {
-          item.style.backgroundColor == "red" ||
-            item.style.backgroundColor == "yellow";
-        });
+    winDiagonalArray.forEach((diagArray) => {
+      if (diagArray.includes(tile.value)) {
+        console.log(tile.value);
+        // array.every((item) => {
+        //   item.style.backgroundColor == "red";
+        // })
+        //   playerOneWinner();
+        // ;
       }
     });
   });
 };
-
-
-
-
-
-
-
-
-
 
 const getActiveColumn = (event) => {
   switch (event.target.classList[1]) {
@@ -93,10 +129,8 @@ const checkColumn = (column, event) => {
       checkingColumn[index + 2].style.backgroundColor == "red" &&
       checkingColumn[index + 3].style.backgroundColor == "red"
     ) {
-      console.log("Red Winner");
-      setTimeout(() => {
-        alert("Red is the Winner!");
-      }, 250);
+      playerOneWinner();
+
       break;
     } else if (
       checkingColumn[index].style.backgroundColor == "yellow" &&
@@ -104,10 +138,7 @@ const checkColumn = (column, event) => {
       checkingColumn[index + 2].style.backgroundColor == "yellow" &&
       checkingColumn[index + 3].style.backgroundColor == "yellow"
     ) {
-      console.log("Yellow Winner");
-      setTimeout(() => {
-        alert("Yellow is the Winner!");
-      }, 250);
+      playerTwoWinner();
       break;
     }
   }
@@ -149,9 +180,12 @@ const checkWin = (event) => {
   } else if (checkableTiles[1]) {
     checkRow(winRow, event);
     return;
-  } else {
+  } else if (checkableTiles[2]) {
     checkColumn(checkColAndRow, event);
     checkRow(checkColAndRow, event);
+  } else {
+    checkDiagonal();
+
     return;
   }
 };
