@@ -39,9 +39,9 @@ Once four are alligned banner to pop up . If win, show confetti and congrats. If
 
 **How Im going to attack this project.**
 
-1. Get the grid on screen-raw design
-2. Look into turn based soloutions so the app knows on the first click is player 1, second is player 2, third is player 1 and so on..
-3. Function to watch the board for when there are 4 in a row and when this is true to display a winner.
+1. Get the grid on screen-raw design TICK 
+2. Look into turn based soloutions so the app knows on the first click is player 1, second is player 2, third is player 1 and so on.. TICK 
+3. Function to watch the board for when there are 4 in a row and when this is true to display a winner. TICK FOR H AND V NOT DIAG
 4. Be able to maintain the image on screen of the chosen color, if the same column is picked to not replace it, to land one above.
 5. When game is finished to show up with a message on who won and option to play again
 
