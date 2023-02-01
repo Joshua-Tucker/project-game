@@ -107,3 +107,9 @@ We want the tile to fall to the lowest number to imitate gravity
 if clicked on column a, go to the next availble white spaced background(and fill that) starting from the bottom
 
 if ("click" .classList[1]==A) for loop => if (!white move on to next one else white background=> change color 
+
+IDEAS FOR DECLARING WINNER
+
+If i change the loop to check the +1-4 after index when it gets to the last line it thows an error for columns and spills over to the next one so if there were 3 on top of column a and 1 on bottom of column b it still results in a win
+With the rows it throws an error with the top roght corner and depends on how you click the tiles, which then doesnt shopw a win even if it is.
+This moving container that i need to create only needs to check columns [0]+4, [1]+4, [2]+4 and rows [0]+4, [6]+4, [12]+4, [18]+4 and be able to move along their respective axis

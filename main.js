@@ -7,6 +7,10 @@ const eTiles = document.querySelectorAll(".E");
 const fTiles = document.querySelectorAll(".F");
 const gTiles = document.querySelectorAll(".G");
 const resetButton = document.querySelector(".reset")
+const winRow = document.querySelectorAll(".checkRow")
+const winCol = document.querySelectorAll(".checkCol")
+const checkColAndRow = document.querySelectorAll(".checkBoth")
+
 
 let playerOneTurn = true;
 
@@ -54,8 +58,8 @@ const loopThroughTiles = (tiles,dropColor) =>{
 
 
 const checkColumn = (getActiveColumn) => {
-const checkingColumn = getActiveColumn
-  for (let index = 0; index < checkingColumn.length; index++) {
+// const checkingColumn = getActiveColumn(event)
+  for (let index = 0; index < tiles.length; index++) {
     if(
       (tiles[index].style.backgroundColor=="red") &&
       (tiles[index+1].style.backgroundColor=="red") &&
@@ -95,10 +99,19 @@ for (let index = 0; index <= 23; index++) {
     { console.log("Yellow Winner")
     setTimeout(()=>{alert("Yellow is the Winner!")},250)
     break;
-
     }  
   }
 }
+
+const checkableTiles = [].concat(winCol,winRow,checkColAndRow)
+console.log(checkableTiles)
+
+// const checkWin=()=>{
+//   const checkableTiles = tiles.map((tile) =>{
+//     if (tile.classList.contains("checkCol" || "checkRow"))
+//   })
+// }
+
 
 
 // /not understanding this function
