@@ -133,30 +133,35 @@ const getActiveRow = (event) =>{
 
 const checkColumn = () => {
   for (let index = 0; index < tiles.length; index++) {
-    if (
-      tiles[index].style.backgroundColor == "red" &&
-      tiles[index + 1].style.backgroundColor == "red" &&
-      tiles[index + 2].style.backgroundColor == "red" &&
-      tiles[index + 3].style.backgroundColor == "red"
-    ) {
-      playerOneWinner();
-
-      break;
-    } else if (
-      tiles[index].style.backgroundColor == "yellow" &&
-      tiles[index + 1].style.backgroundColor == "yellow" &&
-      tiles[index + 2].style.backgroundColor == "yellow" &&
-      tiles[index + 3].style.backgroundColor == "yellow"
-    ) {
-      playerTwoWinner();
-      break;
+    //Surely this is still broken but we can talk about it tomorrow
+    if(tiles[index].classList[3].includes("1")||tiles[index].classList[3].includes("2")||tiles[index].classList[3].includes("3")){
+      if (
+        tiles[index].style.backgroundColor == "red" &&
+        tiles[index + 1].style.backgroundColor == "red" &&
+        tiles[index + 2].style.backgroundColor == "red" &&
+        tiles[index + 3].style.backgroundColor == "red"
+      ) {
+        playerOneWinner();
+  
+        break;
+      } else if (
+        tiles[index].style.backgroundColor == "yellow" &&
+        tiles[index + 1].style.backgroundColor == "yellow" &&
+        tiles[index + 2].style.backgroundColor == "yellow" &&
+        tiles[index + 3].style.backgroundColor == "yellow"
+      ) {
+        playerTwoWinner();
+        break;
+      }
     }
+    
   }
 };
 
 
 const checkRow = () => {
   for (let index = 0; index < (tiles.length -18); index++) {
+    // I did less than 18 so it doesn't check the last 3 rows
     if (
       tiles[index].style.backgroundColor == "red" &&
       tiles[index + 6].style.backgroundColor == "red" &&
