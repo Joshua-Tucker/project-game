@@ -77,20 +77,22 @@ const getActiveColor = () => {
 
 const checkColorTile = () => {};
 
-const checkDiagonal = () => {
-  tilesArr.forEach((tile) => {
-    winDiagonalArray.forEach((diagArray) => {
-      if (diagArray.includes(tile.value)) {
-        console.log(tile.value);
-        // array.every((item) => {
-        //   item.style.backgroundColor == "red";
-        // })
-        //   playerOneWinner();
-        // ;
+
+const checkDiagonal = (event) => {
+  tiles.forEach((tile) => {//for each tile on the board
+    winDiagonalArray.forEach((diagArray) => {//and for each array we have a winning combination
+      if (diagArray.includes(tile.value)) { //if the array includes the tile value
+        array.every((item) => {//and if every index in that array has
+          item.style.backgroundColor == "red";//a background color of red
+        })
+          playerOneWinner(); //display a winner
+        ;
       }
     });
   });
 };
+
+
 
 const getActiveColumn = (event) => {
   switch (event.target.classList[1]) {
@@ -184,7 +186,7 @@ const checkWin = (event) => {
     checkColumn(checkColAndRow, event);
     checkRow(checkColAndRow, event);
   } else {
-    checkDiagonal();
+    checkDiagonal(event);
 
     return;
   }
