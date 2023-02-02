@@ -195,3 +195,49 @@
 // {playerDisplay.innerHTML =  playerTwoName.value + " Yellow to move"
 // }
 // }
+
+
+
+
+// const checkDiagonal = () => {
+//   tiles.forEach((tile) => {//for each tile on the board
+//     winDiagonalArray.forEach((array) => {//and for each array we have a winning combination
+//       if (array.includes(tile.classList[2])) { //if the array includes the tile value
+//         array.every((item,tileClasslist) => {//and if every index in that array has THIS RETURNS TRUE OR FALSE VALUE
+//           tileClasslist.style.backgroundColor == "red";//a background color of red
+//         })
+
+//         return playerOneWinner(); //display a winner
+//         ;
+//       }
+//     });
+//   });
+
+// };
+
+
+// 
+
+
+
+// const checkDiagonal= (event)=>{
+//       //   for (let index = 0; index < winDiagonalArray.length; index++) {
+//       //     const tileOne = tiles[winDiagonalArray[index][0]] 
+//       //     const tileTwo = tiles[winDiagonalArray[index][1]]
+//       //     const tileThree = tiles[winDiagonalArray[index][2]]
+//       //     const tileFour = tiles[winDiagonalArray[index][3]]
+//       // console.log(tileOne, tileTwo, tileThree, tileFour)
+      
+      
+          
+//       //   }
+//       // //     if(
+//       // //       tileOne.classList.contains(winDiagonalArray[index][0]) && 
+//       // //       tileTwo.classList.contains(winDiagonalArray[index][1]) && 
+//       // //       tileThree.classList.contains(winDiagonalArray[index][2]) && 
+//       // //       tileFour.classList.contains(winDiagonalArray[index][3])) {
+//       // //       playerOneWinner()
+      
+//       // //   }
+//       // // }
+//       // }
