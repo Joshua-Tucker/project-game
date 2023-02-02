@@ -113,6 +113,7 @@ const getActiveColumn = (event) => {
   }
 };
 const getActiveRow = (event) =>{
+  console.log(event)
   switch (event.target.classList[2]){
     case "H":
       return hTiles;
@@ -130,49 +131,46 @@ const getActiveRow = (event) =>{
 }
 
 
-const checkColumn = (activeColumn, event) => {
-  const checkingColumn = getActiveColumn(event);
-  for (let index = 0; index <= checkingColumn.length; index++) {
+const checkColumn = () => {
+  for (let index = 0; index < tiles.length; index++) {
     if (
-      checkingColumn[index].style.backgroundColor == "red" &&
-      checkingColumn[index + 1].style.backgroundColor == "red" &&
-      checkingColumn[index + 2].style.backgroundColor == "red" &&
-      checkingColumn[index + 3].style.backgroundColor == "red"
+      tiles[index].style.backgroundColor == "red" &&
+      tiles[index + 1].style.backgroundColor == "red" &&
+      tiles[index + 2].style.backgroundColor == "red" &&
+      tiles[index + 3].style.backgroundColor == "red"
     ) {
       playerOneWinner();
 
       break;
     } else if (
-      checkingColumn[index].style.backgroundColor == "yellow" &&
-      checkingColumn[index + 1].style.backgroundColor == "yellow" &&
-      checkingColumn[index + 2].style.backgroundColor == "yellow" &&
-      checkingColumn[index + 3].style.backgroundColor == "yellow"
+      tiles[index].style.backgroundColor == "yellow" &&
+      tiles[index + 1].style.backgroundColor == "yellow" &&
+      tiles[index + 2].style.backgroundColor == "yellow" &&
+      tiles[index + 3].style.backgroundColor == "yellow"
     ) {
       playerTwoWinner();
       break;
     }
   }
 };
-console.log(checkColumn())
 
-const checkRow = (row, event) => {
-  const checkingRow = getActiveRow(event);
 
-  for (let index = 0; index <=checkingRow.length; index++) {
+const checkRow = () => {
+  for (let index = 0; index < (tiles.length -18); index++) {
     if (
-      checkingRow[index].style.backgroundColor == "red" &&
-      checkingRow[index + 6].style.backgroundColor == "red" &&
-      checkingRow[index + 12].style.backgroundColor == "red" &&
-      checkingRow[index + 18].style.backgroundColor == "red"
+      tiles[index].style.backgroundColor == "red" &&
+      tiles[index + 6].style.backgroundColor == "red" &&
+      tiles[index + 12].style.backgroundColor == "red" &&
+      tiles[index + 18].style.backgroundColor == "red"
     ) {
       playerOneWinner();
       ;
       break;
     } else if (
-      checkingRow[index].style.backgroundColor == "yellow" &&
-      checkingRow[index + 6].style.backgroundColor == "yellow" &&
-      checkingRow[index + 12].style.backgroundColor == "yellow" &&
-      checkingRow[index + 18].style.backgroundColor == "yellow"
+      tiles[index].style.backgroundColor == "yellow" &&
+      tiles[index + 6].style.backgroundColor == "yellow" &&
+      tiles[index + 12].style.backgroundColor == "yellow" &&
+      tiles[index + 18].style.backgroundColor == "yellow"
     ) {
       playerTwoWinner();
       break;
@@ -180,21 +178,9 @@ const checkRow = (row, event) => {
   }
 };
 
-const checkWin = (event) => {
-  if (checkableTiles[0]) {
-    checkColumn(winCol, event);
-    return;
-  } else if (checkableTiles[1]) {
-    checkRow(winRow, event);
-    return;
-  } else if (checkableTiles[2]) {
-    checkColumn(checkColAndRow, event);
-    checkRow(checkColAndRow, event);
-  } else {
-    checkDiagonal(event);
-
-    return;
-  }
+const checkWin = () => {
+  checkRow()
+  checkColumn()
 };
 
 const handleColumnDrop = (columnTiles) => {
