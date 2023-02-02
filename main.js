@@ -6,6 +6,13 @@ const dTiles = document.querySelectorAll(".D");
 const eTiles = document.querySelectorAll(".E");
 const fTiles = document.querySelectorAll(".F");
 const gTiles = document.querySelectorAll(".G");
+const hTiles = document.querySelectorAll(".H");
+const iTiles = document.querySelectorAll(".I");
+const jTiles = document.querySelectorAll(".J");
+const kTiles = document.querySelectorAll(".K");
+const lTiles = document.querySelectorAll(".L");
+const mTiles = document.querySelectorAll(".M");
+
 const resetButton = document.querySelector(".reset");
 const winRow = document.querySelectorAll(".checkRow");
 const winCol = document.querySelectorAll(".checkCol");
@@ -19,30 +26,30 @@ const playerTwoName = document.getElementById("playerTwo");
 let playerOneTurn = true;
 
 const winDiagonalArray = [
-  [0, 7, 14, 21],
-  [1, 8, 15, 22],
-  [2, 9, 16, 23],
-  [3, 8, 13, 18],
-  [4, 9, 14, 19],
-  [5, 10, 15, 20],
-  [6, 13, 20, 27],
-  [7, 14, 21, 28],
-  [8, 15, 22, 29],
-  [9, 14, 19, 24],
-  [10, 15, 20, 25],
-  [11, 16, 21, 26],
-  [12, 19, 26, 33],
-  [13, 20, 27, 34],
-  [14, 21, 28, 35],
-  [15, 20, 25, 30],
-  [16, 21, 26, 31],
-  [17, 22, 27, 32],
-  [18, 25, 32, 39],
-  [19, 26, 33, 40],
-  [20, 27, 34, 41],
-  [21, 26, 31, 36],
-  [22, 27, 32, 37],
-  [23, 28, 33, 38],
+  ["A1", "B2", "C3", "D4"],
+  // [1, 8, 15, 22],
+  // [2, 9, 16, 23],
+  // [3, 8, 13, 18],
+  // [4, 9, 14, 19],
+  // [5, 10, 15, 20],
+  // [6, 13, 20, 27],
+  // [7, 14, 21, 28],
+  // [8, 15, 22, 29],
+  // [9, 14, 19, 24],
+  // [10, 15, 20, 25],
+  // [11, 16, 21, 26],
+  // [12, 19, 26, 33],
+  // [13, 20, 27, 34],
+  // [14, 21, 28, 35],
+  // [15, 20, 25, 30],
+  // [16, 21, 26, 31],
+  // [17, 22, 27, 32],
+  // [18, 25, 32, 39],
+  // [19, 26, 33, 40],
+  // [20, 27, 34, 41],
+  // [21, 26, 31, 36],
+  // [22, 27, 32, 37],
+  // [23, 28, 33, 38],
 ];
 
 const nameDisplay = () => {
@@ -77,21 +84,14 @@ const getActiveColor = () => {
 
 const checkColorTile = () => {};
 
-
-const checkDiagonal = (event) => {
-  tiles.forEach((tile) => {//for each tile on the board
-    winDiagonalArray.forEach((diagArray) => {//and for each array we have a winning combination
-      if (diagArray.includes(tile.value)) { //if the array includes the tile value
-        array.every((item) => {//and if every index in that array has
-          item.style.backgroundColor == "red";//a background color of red
-        })
-          playerOneWinner(); //display a winner
-        ;
-      }
-    });
-  });
+const loopThroughTiles = (tiles, dropColor) => {
+  for (let index = 0; index < tiles.length; index++) {
+    if (tiles[index].style.backgroundColor == "") {
+      tiles[index].style.backgroundColor = dropColor;
+      return;
+    }
+  }
 };
-
 
 
 const getActiveColumn = (event) => {
@@ -112,53 +112,64 @@ const getActiveColumn = (event) => {
       return gTiles;
   }
 };
+const getActiveRow = (event) =>{
+  console.log(event)
+  switch (event.target.classList[2]){
+    case "H":
+      return hTiles;
+    case "I":
+      return iTiles;
+    case "J":
+      return jTiles;
+    case "K":
+      return kTiles;
+    case "L":
+      return lTiles;
+    case "M":
+      return mTiles;
+  }
+}
 
-const loopThroughTiles = (tiles, dropColor) => {
+
+const checkColumn = () => {
   for (let index = 0; index < tiles.length; index++) {
-    if (tiles[index].style.backgroundColor == "") {
-      tiles[index].style.backgroundColor = dropColor;
-      return;
+    //Surely this is still broken but we can talk about it tomorrow
+    if(tiles[index].classList[3].includes("1")||tiles[index].classList[3].includes("2")||tiles[index].classList[3].includes("3")){
+      if (
+        tiles[index].style.backgroundColor == "red" &&
+        tiles[index + 1].style.backgroundColor == "red" &&
+        tiles[index + 2].style.backgroundColor == "red" &&
+        tiles[index + 3].style.backgroundColor == "red"
+      ) {
+        playerOneWinner();
+  
+        break;
+      } else if (
+        tiles[index].style.backgroundColor == "yellow" &&
+        tiles[index + 1].style.backgroundColor == "yellow" &&
+        tiles[index + 2].style.backgroundColor == "yellow" &&
+        tiles[index + 3].style.backgroundColor == "yellow"
+      ) {
+        playerTwoWinner();
+        break;
+      }
     }
+    
   }
 };
 
-const checkColumn = (column, event) => {
-  const checkingColumn = getActiveColumn(event);
-  for (let index = 0; index < checkingColumn.length; index++) {
-    if (
-      checkingColumn[index].style.backgroundColor == "red" &&
-      checkingColumn[index + 1].style.backgroundColor == "red" &&
-      checkingColumn[index + 2].style.backgroundColor == "red" &&
-      checkingColumn[index + 3].style.backgroundColor == "red"
-    ) {
-      playerOneWinner();
 
-      break;
-    } else if (
-      checkingColumn[index].style.backgroundColor == "yellow" &&
-      checkingColumn[index + 1].style.backgroundColor == "yellow" &&
-      checkingColumn[index + 2].style.backgroundColor == "yellow" &&
-      checkingColumn[index + 3].style.backgroundColor == "yellow"
-    ) {
-      playerTwoWinner();
-      break;
-    }
-  }
-};
-
-//APPLY SAME LOGIC WITH COLUMNS TO ROW(ACTIVE ROW THEN CHANGE IF STATEMENT)
 const checkRow = () => {
-  for (let index = 0; index <= 23; index++) {
+  for (let index = 0; index < (tiles.length -18); index++) {
+    // I did less than 18 so it doesn't check the last 3 rows
     if (
       tiles[index].style.backgroundColor == "red" &&
       tiles[index + 6].style.backgroundColor == "red" &&
       tiles[index + 12].style.backgroundColor == "red" &&
       tiles[index + 18].style.backgroundColor == "red"
     ) {
-      console.log("Red Winner");
-      setTimeout(() => {
-        alert("Red is the Winner!");
-      }, 250);
+      playerOneWinner();
+      ;
       break;
     } else if (
       tiles[index].style.backgroundColor == "yellow" &&
@@ -166,30 +177,15 @@ const checkRow = () => {
       tiles[index + 12].style.backgroundColor == "yellow" &&
       tiles[index + 18].style.backgroundColor == "yellow"
     ) {
-      console.log("Yellow Winner");
-      setTimeout(() => {
-        alert("Yellow is the Winner!");
-      }, 250);
+      playerTwoWinner();
       break;
     }
   }
 };
 
-const checkWin = (event) => {
-  if (checkableTiles[0]) {
-    checkColumn(winCol, event);
-    return;
-  } else if (checkableTiles[1]) {
-    checkRow(winRow, event);
-    return;
-  } else if (checkableTiles[2]) {
-    checkColumn(checkColAndRow, event);
-    checkRow(checkColAndRow, event);
-  } else {
-    checkDiagonal(event);
-
-    return;
-  }
+const checkWin = () => {
+  checkRow()
+  checkColumn()
 };
 
 const handleColumnDrop = (columnTiles) => {
@@ -217,7 +213,6 @@ const handleReset = (event) => {
 };
 
 tiles.forEach((tile) => {
-  tile.addEventListener("click", handleClick);
   tile.addEventListener("click", handleClick);
 });
 
