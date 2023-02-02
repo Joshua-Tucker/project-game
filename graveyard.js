@@ -228,6 +228,23 @@
 //       //     const tileFour = tiles[winDiagonalArray[index][3]]
 //       // console.log(tileOne, tileTwo, tileThree, tileFour)
       
+// const getActiveRow = (event) =>{
+//   console.log(event)
+//   switch (event.target.classList[2]){
+//     case "H":
+//       return hTiles;
+//     case "I":
+//       return iTiles;
+//     case "J":
+//       return jTiles;
+//     case "K":
+//       return kTiles;
+//     case "L":
+//       return lTiles;
+//     case "M":
+//       return mTiles;
+//   }
+// }
       
           
 //       //   }

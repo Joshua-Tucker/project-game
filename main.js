@@ -68,7 +68,7 @@ const playerOneWinner = () => {
 };
 
 const playerTwoWinner = () => {
-  console.log("Red Winner");
+  console.log("Yellow Winner");
   setTimeout(() => {
     alert(playerTwoName.value + " is the Winner!");
   }, 250);
@@ -92,8 +92,6 @@ const loopThroughTiles = (tiles, dropColor) => {
     }
   }
 };
-
-
 const getActiveColumn = (event) => {
   switch (event.target.classList[1]) {
     case "A":
@@ -112,25 +110,60 @@ const getActiveColumn = (event) => {
       return gTiles;
   }
 };
-const getActiveRow = (event) =>{
-  console.log(event)
-  switch (event.target.classList[2]){
-    case "H":
-      return hTiles;
-    case "I":
-      return iTiles;
-    case "J":
-      return jTiles;
-    case "K":
-      return kTiles;
-    case "L":
-      return lTiles;
-    case "M":
-      return mTiles;
+
+// const diagonalCheck=()=>{
+// tiles[index].style.backgroundColor == "red" &&
+// tiles[index + 7].style.backgroundColor == "red" &&
+// tiles[index + 14].style.backgroundColor == "red" &&
+// tiles[index + 21].style.backgroundColor == "red"
+// }
+
+
+//can i use a switch case here if i bring the diagonal check outside the loop?  
+// switch (tiles[index].classList[3].includes) {
+    //   case "A1":
+    //     return diagonalCheck() + playerOneWinner();
+    // }
+    
+const checkDiagonal = () =>{
+  for (let index = 0; index < (tiles.length); index++) {
+
+    if (tiles[index].classList[3].includes("A1")||tiles[index].classList[3].includes("A2")||tiles[index].classList[3].includes("A3")||tiles[index].classList[3].includes("B1")||tiles[index].classList[3].includes("B2")||tiles[index].classList[3].includes("B3")||tiles[index].classList[3].includes("C1")||tiles[index].classList[3].includes("C2")||tiles[index].classList[3].includes("C3")||tiles[index].classList[3].includes("D1")||tiles[index].classList[3].includes("D2")||tiles[index].classList[3].includes("D3")) {
+     if(
+        tiles[index].style.backgroundColor == "red" &&
+        tiles[index + 7].style.backgroundColor == "red" &&
+        tiles[index + 14].style.backgroundColor == "red" &&
+        tiles[index + 21].style.backgroundColor == "red"
+     ){
+      playerOneWinner();
+     } else if (
+      tiles[index].style.backgroundColor == "yellow" &&
+      tiles[index + 7].style.backgroundColor == "yellow" &&
+      tiles[index + 14].style.backgroundColor == "yellow" &&
+      tiles[index + 21].style.backgroundColor == "yellow"
+    ) {
+      playerTwoWinner();
+      }
+    } else if (tiles[index].classList[3].includes("A4")||tiles[index].classList[3].includes("A5")||tiles[index].classList[3].includes("A6")||tiles[index].classList[3].includes("B4")||tiles[index].classList[3].includes("B5")||tiles[index].classList[3].includes("B6")||tiles[index].classList[3].includes("C4")||tiles[index].classList[3].includes("C5")||tiles[index].classList[3].includes("C6")||tiles[index].classList[3].includes("D1")||tiles[index].classList[3].includes("D2")||tiles[index].classList[3].includes("D3")){
+      if(
+        tiles[index].style.backgroundColor == "red" &&
+        tiles[index + 5].style.backgroundColor == "red" &&
+        tiles[index + 10].style.backgroundColor == "red" &&
+        tiles[index + 15].style.backgroundColor == "red"
+     ){
+      playerOneWinner();
+     } else if (
+      tiles[index].style.backgroundColor == "yellow" &&
+      tiles[index + 5].style.backgroundColor == "yellow" &&
+      tiles[index + 10].style.backgroundColor == "yellow" &&
+      tiles[index + 15].style.backgroundColor == "yellow"
+    ) {
+      playerTwoWinner();
+      }
+    }
   }
+
 }
-
-
 const checkColumn = () => {
   for (let index = 0; index < tiles.length; index++) {
     //Surely this is still broken but we can talk about it tomorrow
@@ -157,11 +190,11 @@ const checkColumn = () => {
     
   }
 };
-
-
 const checkRow = () => {
   for (let index = 0; index < (tiles.length -18); index++) {
     // I did less than 18 so it doesn't check the last 3 rows
+
+    //this puzzled me for a long time initally because i thought if it was limited it would stop at the 18th tile.. meaning that once you go past the first couple of tiles when it does i+18 it wouldnt pick it up because the programme is only limited to the first 18
     if (
       tiles[index].style.backgroundColor == "red" &&
       tiles[index + 6].style.backgroundColor == "red" &&
@@ -182,19 +215,17 @@ const checkRow = () => {
     }
   }
 };
-
 const checkWin = () => {
   checkRow()
   checkColumn()
+  checkDiagonal()
 };
-
 const handleColumnDrop = (columnTiles) => {
   let dropColor = getActiveColor();
   loopThroughTiles(columnTiles, dropColor);
   playerOneTurn = !playerOneTurn;
   nameDisplay();
 };
-
 const handleClick = (event) => {
   if (event.target.style.backgroundColor == "") {
     const currentTiles = getActiveColumn(event);
@@ -204,7 +235,6 @@ const handleClick = (event) => {
   }
   checkWin(event);
 };
-
 const handleReset = (event) => {
   tiles.forEach((tile) => {
     tile.style.backgroundColor = "";
