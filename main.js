@@ -43,8 +43,6 @@ const getActiveColor = () => {
   }
 };
 
-const checkColorTile = () => {};
-
 const loopThroughTiles = (tiles, dropColor) => {
   for (let index = 0; index < tiles.length; index++) {
     if (tiles[index].style.backgroundColor == "") {
@@ -71,20 +69,6 @@ const getActiveColumn = (event) => {
       return gTiles;
   }
 };
-
-// const diagonalCheck=()=>{
-// tiles[index].style.backgroundColor == "red" &&
-// tiles[index + 7].style.backgroundColor == "red" &&
-// tiles[index + 14].style.backgroundColor == "red" &&
-// tiles[index + 21].style.backgroundColor == "red"
-// }
-
-//can i use a switch case here if i bring the diagonal check outside the loop?
-// switch (tiles[index].classList[3].includes) {
-//   case "A1":
-//     return diagonalCheck() + playerOneWinner();
-// }
-
 const checkDiagonal = () => {
   for (let index = 0; index < tiles.length; index++) {
     if (
@@ -178,9 +162,6 @@ const checkColumn = () => {
 };
 const checkRow = () => {
   for (let index = 0; index < tiles.length - 18; index++) {
-    // I did less than 18 so it doesn't check the last 3 rows
-
-    //this puzzled me for a long time initally because i thought if it was limited it would stop at the 18th tile.. meaning that once you go past the first couple of tiles when it does i+18 it wouldnt pick it up because the programme is only limited to the first 18
     if (
       tiles[index].style.backgroundColor == "red" &&
       tiles[index + 6].style.backgroundColor == "red" &&
