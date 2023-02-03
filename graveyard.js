@@ -171,6 +171,19 @@
 //   });
 // };
 
+// const handleTileMouseOver = (event)=>{
+//   const topTile = topTiles
+//   if (playerOneTurn) {//
+//     topTile.add.style.backgroundColor("#A31621")
+//   } else {
+//     topTile.add.style.backgroundColor("#FFFC99")
+
+//   }
+// }
+
+  // tile.addEventListener("mouseover", handleTileMouseOver);
+
+
 
 
 
@@ -228,6 +241,49 @@
 //       //     const tileFour = tiles[winDiagonalArray[index][3]]
 //       // console.log(tileOne, tileTwo, tileThree, tileFour)
       
+// const getActiveRow = (event) =>{
+//   console.log(event)
+//   switch (event.target.classList[2]){
+//     case "H":
+//       return hTiles;
+//     case "I":
+//       return iTiles;
+//     case "J":
+//       return jTiles;
+//     case "K":
+//       return kTiles;
+//     case "L":
+//       return lTiles;
+//     case "M":
+//       return mTiles;
+//   }
+// }
+// const winDiagonalArray = [
+//       ["A1", "B2", "C3", "D4"],
+      // [1, 8, 15, 22],
+      // [2, 9, 16, 23],
+      // [3, 8, 13, 18],
+      // [4, 9, 14, 19],
+      // [5, 10, 15, 20],
+      // [6, 13, 20, 27],
+      // [7, 14, 21, 28],
+      // [8, 15, 22, 29],
+      // [9, 14, 19, 24],
+      // [10, 15, 20, 25],
+      // [11, 16, 21, 26],
+      // [12, 19, 26, 33],
+      // [13, 20, 27, 34],
+      // [14, 21, 28, 35],
+      // [15, 20, 25, 30],
+      // [16, 21, 26, 31],
+      // [17, 22, 27, 32],
+      // [18, 25, 32, 39],
+      // [19, 26, 33, 40],
+      // [20, 27, 34, 41],
+      // [21, 26, 31, 36],
+      // [22, 27, 32, 37],
+      // [23, 28, 33, 38],
+//     ];
       
           
 //       //   }
@@ -241,3 +297,19 @@
 //       // //   }
 //       // // }
 //       // }
+
+// const changeTopTiles = () =>{
+//   topTiles.classList.add("tile")
+// }
+
+// const topTiles =document.querySelectorAll(".top")
+// const handleTileMouseOver = (event)=>{
+//   const topTile = topTiles
+//   if (playerOneTurn) {//
+//     topTile.add.style.backgroundColor("red")
+//   } else {
+//     topTile.add.style.backgroundColor("yellow")
+
+//   }
+// }
+  // tile.addEventListener("mouseover", handleTileMouseOver);

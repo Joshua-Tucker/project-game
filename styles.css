@@ -1,9 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f3bb;
+}
+
 .board {
-  background-color: blue;
+  width: 80%;
+  background-color: #2e86ab;
+  border: 4px solid black;
 }
 
 .tile {
   background-color: white;
+  border: 3px solid black;
   border-radius: 50%;
   margin: 5%;
 }
@@ -25,13 +43,21 @@
 }
 
 .display-container {
+  margin: 5%;
+  border: 4px solid black;
   height: 10vh;
   display: flex;
+  width: 80%;
   justify-content: center;
   align-items: center;
+  background-color: #f7f4ea;
 }
 
 .operation-container {
+  background-color: #f7f4ea;
+  width: 80%;
+  margin: 5%;
+  border: 4px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +65,10 @@
 
 .reset {
   margin: 3%;
+  padding: 2%;
+  width: 50%;
+  border-radius: 12rem;
+  background-color: #e3d8b5;
 }
 
 .player-container {
@@ -49,15 +79,22 @@
 #playerOne {
   width: 30%;
   margin: 2%;
+  padding: 2%;
+  background-color: #e3d8b5;
+  border-radius: 12rem;
 }
 
 #playerTwo {
   width: 30%;
   margin: 2%;
+  padding: 2%;
+  background-color: #e3d8b5;
+  border-radius: 12rem;
 }
 
 label {
   text-align: center;
+  padding: 2%;
 }
 
 .A1 {
@@ -226,4 +263,36 @@ label {
 
 .G6 {
   grid-area: G6;
+}
+
+@media screen and (min-width: 768px) {
+  * {
+    font-size: large;
+  }
+  .board {
+    width: 60%;
+  }
+  .display-container {
+    width: 60%;
+  }
+  .operation-container {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  * {
+    font-size: larger;
+    margin: 0;
+  }
+  .board {
+    width: 40%;
+  }
+  .display-container {
+    margin: 1%;
+    width: 40%;
+  }
+  .operation-container {
+    margin: 1%;
+    width: 40%;
+  }
 }/*# sourceMappingURL=styles.css.map */
