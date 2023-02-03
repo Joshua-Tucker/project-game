@@ -5,7 +5,8 @@ const cTiles = document.querySelectorAll(".C");
 const dTiles = document.querySelectorAll(".D");
 const eTiles = document.querySelectorAll(".E");
 const fTiles = document.querySelectorAll(".F");
-const topTiles =document.querySelectorAll(".top")
+const gTiles = document.querySelectorAll(".G");
+// const topTiles =document.querySelectorAll(".top")
 
 const resetButton = document.querySelector(".reset");
 const playerDisplay = document.querySelector(".display-container");
@@ -15,6 +16,9 @@ const playerTwoName = document.getElementById("playerTwo");
 let playerOneTurn = true;
 
 
+// const changeTopTiles = () =>{
+//   topTiles.classList.add("tile")
+// }
 
 const nameDisplay = () => {
   if (playerOneTurn) {
@@ -91,18 +95,18 @@ const getActiveColumn = (event) => {
 const checkDiagonal = () => {
   for (let index = 0; index < tiles.length; index++) {
     if (
-      tiles[index].classList[3].includes("A1") ||
-      tiles[index].classList[3].includes("A2") ||
-      tiles[index].classList[3].includes("A3") ||
-      tiles[index].classList[3].includes("B1") ||
-      tiles[index].classList[3].includes("B2") ||
-      tiles[index].classList[3].includes("B3") ||
-      tiles[index].classList[3].includes("C1") ||
-      tiles[index].classList[3].includes("C2") ||
-      tiles[index].classList[3].includes("C3") ||
-      tiles[index].classList[3].includes("D1") ||
-      tiles[index].classList[3].includes("D2") ||
-      tiles[index].classList[3].includes("D3")
+      tiles[index].classList[2].includes("A1") ||
+      tiles[index].classList[2].includes("A2") ||
+      tiles[index].classList[2].includes("A3") ||
+      tiles[index].classList[2].includes("B1") ||
+      tiles[index].classList[2].includes("B2") ||
+      tiles[index].classList[2].includes("B3") ||
+      tiles[index].classList[2].includes("C1") ||
+      tiles[index].classList[2].includes("C2") ||
+      tiles[index].classList[2].includes("C3") ||
+      tiles[index].classList[2].includes("D1") ||
+      tiles[index].classList[2].includes("D2") ||
+      tiles[index].classList[2].includes("D3")
     ) {
       if (
         tiles[index].style.backgroundColor == "red" &&
@@ -120,18 +124,18 @@ const checkDiagonal = () => {
         playerTwoWinner();
       }
     } else if (
-      tiles[index].classList[3].includes("A4") ||
-      tiles[index].classList[3].includes("A5") ||
-      tiles[index].classList[3].includes("A6") ||
-      tiles[index].classList[3].includes("B4") ||
-      tiles[index].classList[3].includes("B5") ||
-      tiles[index].classList[3].includes("B6") ||
-      tiles[index].classList[3].includes("C4") ||
-      tiles[index].classList[3].includes("C5") ||
-      tiles[index].classList[3].includes("C6") ||
-      tiles[index].classList[3].includes("D1") ||
-      tiles[index].classList[3].includes("D2") ||
-      tiles[index].classList[3].includes("D3")
+      tiles[index].classList[2].includes("A4") ||
+      tiles[index].classList[2].includes("A5") ||
+      tiles[index].classList[2].includes("A6") ||
+      tiles[index].classList[2].includes("B4") ||
+      tiles[index].classList[2].includes("B5") ||
+      tiles[index].classList[2].includes("B6") ||
+      tiles[index].classList[2].includes("C4") ||
+      tiles[index].classList[2].includes("C5") ||
+      tiles[index].classList[2].includes("C6") ||
+      tiles[index].classList[2].includes("D1") ||
+      tiles[index].classList[2].includes("D2") ||
+      tiles[index].classList[2].includes("D3")
     ) {
       if (
         tiles[index].style.backgroundColor == "red" &&
@@ -155,9 +159,9 @@ const checkColumn = () => {
   for (let index = 0; index < tiles.length; index++) {
     //Surely this is still broken but we can talk about it tomorrow
     if (
-      tiles[index].classList[3].includes("1") ||
-      tiles[index].classList[3].includes("2") ||
-      tiles[index].classList[3].includes("3")
+      tiles[index].classList[2].includes("1") ||
+      tiles[index].classList[2].includes("2") ||
+      tiles[index].classList[2].includes("3")
     ) {
       if (
         tiles[index].style.backgroundColor == "red" &&
@@ -231,19 +235,19 @@ const handleReset = (event) => {
   playerDisplay.innerHTML = "";
 };
 
-const handleTileMouseOver = (event)=>{
-  if (playerOneTurn) {
-    topTiles.add.style.backgroundColor("red")
-  } else {
-    topTiles.add.style.backgroundColor("yellow")
+// const handleTileMouseOver = (event)=>{
+//   const topTile = topTiles
+//   if (playerOneTurn) {//
+//     topTile.add.style.backgroundColor("red")
+//   } else {
+//     topTile.add.style.backgroundColor("yellow")
 
-  }
-}
+//   }
+// }
 
 tiles.forEach((tile) => {
-  tile.addEventListener("mouseover",handleTileMouseOver)
+  // tile.addEventListener("mouseover", handleTileMouseOver);
   tile.addEventListener("click", handleClick);
-
 });
 
 
