@@ -1,7 +1,9 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 *{
     margin:0;
     padding:0;
-    
+    font-family: 'Montserrat', sans-serif;    
 }
 
 body{
@@ -9,29 +11,25 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #F5F3BB;
 
 }
 .board {
  
     width:80%;
-    background-color: blue;
+    background-color: #2E86AB;
     border: 4px solid black ;
 }
-// .top { 
-//     border: 4px solid black;
-//     border-radius: 50%;
-//     margin:5%
 
-// }
 .tile {
     background-color: white;
-    border: 4px solid black;
+    border: 3px solid black;
     border-radius: 50%;
     margin:5%
 }
-// .tile:hover{
-//     background-color: blueviolet;
-// }
+.tile:hover{
+    background-color: blueviolet;
+}
 .tile-container {  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -39,7 +37,6 @@ body{
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-    //   "topA topB topC topD topE topF topG"
       "A6 B6 C6 D6 E6 F6 G6"
       "A5 B5 C5 D5 E5 F5 G5"
       "A4 B4 C4 D4 E4 F4 G4"
@@ -53,38 +50,63 @@ body{
 
 
 .display-container{
+    margin:5%;
+    border: 4px solid black ;
+
     height:10vh;
     display: flex;
+    width:100%;
     justify-content: center;
     align-items: center;
+    background-color: #F7F4EA;
 }
 .operation-container{
+    background-color: #F7F4EA;
+
+margin:5%;
+    border: 4px solid black ;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 .reset{
     margin:3%;
+    padding:2%;
+    width: 50%;
+    border-radius: 12rem;
+    background-color: #E3D8B5;
 
 }
 
 .player-container{
     display:flex;
     margin:2%;
+
 }
 #playerOne{
     width:30%;
     margin: 2%;
+    padding:2%;
+    background-color: #E3D8B5;
+
+    border-radius: 12rem;
+
 
 }
 #playerTwo{
     width:30%;
     margin: 2%;
+    padding:2%;
+    background-color: #E3D8B5;
+
+    border-radius: 12rem;
+
 
 }
 
 label{
     text-align: center;
+    padding:2%;
 }
 
 

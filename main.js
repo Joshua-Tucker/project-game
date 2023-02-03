@@ -232,7 +232,7 @@ const handleReset = (event) => {
   tiles.forEach((tile) => {
     tile.style.backgroundColor = "";
   });
-  playerDisplay.innerHTML = "";
+  playerDisplay.innerHTML = "Are you ready to play?!";
 };
 
 // const handleTileMouseOver = (event)=>{
