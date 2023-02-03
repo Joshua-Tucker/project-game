@@ -297,3 +297,19 @@
 //       // //   }
 //       // // }
 //       // }
+
+// const changeTopTiles = () =>{
+//   topTiles.classList.add("tile")
+// }
+
+// const topTiles =document.querySelectorAll(".top")
+// const handleTileMouseOver = (event)=>{
+//   const topTile = topTiles
+//   if (playerOneTurn) {//
+//     topTile.add.style.backgroundColor("red")
+//   } else {
+//     topTile.add.style.backgroundColor("yellow")
+
+//   }
+// }
+  // tile.addEventListener("mouseover", handleTileMouseOver);

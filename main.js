@@ -6,19 +6,12 @@ const dTiles = document.querySelectorAll(".D");
 const eTiles = document.querySelectorAll(".E");
 const fTiles = document.querySelectorAll(".F");
 const gTiles = document.querySelectorAll(".G");
-// const topTiles =document.querySelectorAll(".top")
-
 const resetButton = document.querySelector(".reset");
 const playerDisplay = document.querySelector(".display-container");
 const playerOneName = document.getElementById("playerOne");
 const playerTwoName = document.getElementById("playerTwo");
 
 let playerOneTurn = true;
-
-
-// const changeTopTiles = () =>{
-//   topTiles.classList.add("tile")
-// }
 
 const nameDisplay = () => {
   if (playerOneTurn) {
@@ -157,7 +150,6 @@ const checkDiagonal = () => {
 };
 const checkColumn = () => {
   for (let index = 0; index < tiles.length; index++) {
-    //Surely this is still broken but we can talk about it tomorrow
     if (
       tiles[index].classList[2].includes("1") ||
       tiles[index].classList[2].includes("2") ||
@@ -235,21 +227,7 @@ const handleReset = (event) => {
   playerDisplay.innerHTML = "Are you ready to play?!";
 };
 
-// const handleTileMouseOver = (event)=>{
-//   const topTile = topTiles
-//   if (playerOneTurn) {//
-//     topTile.add.style.backgroundColor("red")
-//   } else {
-//     topTile.add.style.backgroundColor("yellow")
-
-//   }
-// }
-
 tiles.forEach((tile) => {
-  // tile.addEventListener("mouseover", handleTileMouseOver);
   tile.addEventListener("click", handleClick);
 });
-
-
-
 resetButton.addEventListener("click", handleReset);

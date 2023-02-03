@@ -1,5 +1,22 @@
 # project-game
 
+
+Hello and welcome to my Connect4 game! This is a 2 player game that you can play with a friend (if you have no friends the option to play against the computer will be there in the next update!)
+
+The code is fairly simple, using forLoops to determine whether a winner is on the board and a healthy amount of if? statements to determine what tile counter the forLoop should be started on. 
+
+I plan on updating the game in my spare time as I was over-complicating alot of the code in an attempt to make it cleaner but ran into some problems. Then, towards the end of the project, everything decided to break so focused on getting what I had to work so you can still enjoy yourselves and play the game!
+
+Below is my pseudocode and the project breif alongside ideas I had how to tackle problems. You'll also find a "graveyard file" where sadly idea's that didn't work out or are unfinished are currently being held, ready to be resserected. 
+
+This has been my favourite project so far. Even though the difficulty had increased I noticed many breakthrough moments in my understanding on how to communicate what I want to happen in a way the computer understands it. Admittidly there's a long way to go but I felt that with this project and the support of Rob I have a much greater understanding on JavaScript now.
+
+
+
+
+
+
+
 Project Brief
 
 PSEUDOCODE:
@@ -51,6 +68,23 @@ Once four are alligned banner to pop up . If win, show confetti and congrats. If
 
 8. Show counter falling (animation)
 9. Congrats banner with confetti if win and you suck if you lose
+
+
+
+
+Summary
+
+This is a Connect 4 style game, that can be played with 2 human players. It can be played across multiple screen formats, keeps tracks of who's turn it is and declares a winner once a combination of 4 in a row has been found.
+
+I did not get as far into the game as I would have liked, things I wanted to add was: A score board, confetti on win, tile to hover above board as you moved the mouse, a different layout and the option to go against the computer. I spent too much time overcomplicating the win function which led to me getting lost with my thoughts. This is much simplier that what i expect it to be i just need to understand how to properly word the tools.
+
+
+
+
+
+
+
+
 
 
 
