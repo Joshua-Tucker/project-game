@@ -10,12 +10,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #F5F3BB;
+  background-color: #f5f3bb;
 }
 
 .board {
   width: 80%;
-  background-color: #2E86AB;
+  background-color: #2e86ab;
   border: 4px solid black;
 }
 
@@ -50,11 +50,11 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #F7F4EA;
+  background-color: #f7f4ea;
 }
 
 .operation-container {
-  background-color: #F7F4EA;
+  background-color: #f7f4ea;
   margin: 5%;
   border: 4px solid black;
   display: flex;
@@ -67,7 +67,7 @@ body {
   padding: 2%;
   width: 50%;
   border-radius: 12rem;
-  background-color: #E3D8B5;
+  background-color: #e3d8b5;
 }
 
 .player-container {
@@ -79,7 +79,7 @@ body {
   width: 30%;
   margin: 2%;
   padding: 2%;
-  background-color: #E3D8B5;
+  background-color: #e3d8b5;
   border-radius: 12rem;
 }
 
@@ -87,7 +87,7 @@ body {
   width: 30%;
   margin: 2%;
   padding: 2%;
-  background-color: #E3D8B5;
+  background-color: #e3d8b5;
   border-radius: 12rem;
 }
 
@@ -262,4 +262,36 @@ label {
 
 .G6 {
   grid-area: G6;
+}
+
+@media screen and (min-width: 768px) {
+  * {
+    font-size: large;
+  }
+  .board {
+    width: 60%;
+  }
+  .display-container {
+    width: 60%;
+  }
+  .operation-container {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  * {
+    font-size: larger;
+    margin: 0;
+  }
+  .board {
+    width: 40%;
+  }
+  .display-container {
+    margin: 1%;
+    width: 40%;
+  }
+  .operation-container {
+    margin: 1%;
+    width: 40%;
+  }
 }/*# sourceMappingURL=styles.css.map */
